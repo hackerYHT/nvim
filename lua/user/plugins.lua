@@ -44,8 +44,11 @@ return packer.startup(function(use)
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "akinsho/bufferline.nvim"
-  use "windwp/windline.nvim"
+  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+  use "akinsho/bufferline.nvim"  -- 酷炫顶部栏
+  use "windwp/windline.nvim"  -- 酷炫状态栏
+  use "kyazdani42/nvim-tree.lua"  -- 文件目录插件
+  use "lukas-reineke/indent-blankline.nvim"  -- 自动换行空位制表符
 
  -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
