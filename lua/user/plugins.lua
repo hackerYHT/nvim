@@ -49,6 +49,31 @@ return packer.startup(function(use)
   use "windwp/windline.nvim"  -- 酷炫状态栏
   use "kyazdani42/nvim-tree.lua"  -- 文件目录插件
   use "lukas-reineke/indent-blankline.nvim"  -- 自动换行空位制表符
+  use "Pocco81/AutoSave.nvim"   -- 自动保存插件
+  use "ethanholz/nvim-lastplace"  -- 退出重进后自动恢复光标位置
+
+-- LSP
+use "neovim/nvim-lspconfig" -- LSP 基础服务
+use "williamboman/nvim-lsp-installer" -- 自动安装 LSP
+use "tami5/lspsaga.nvim" -- LSP UI 美化-- LSP 基础服务
+
+-- cmp plugins 代码补全核心插件
+  use "hrsh7th/nvim-cmp" -- The completion plugin
+  use "hrsh7th/cmp-buffer" -- buffer completions
+  use "hrsh7th/cmp-path" -- path completions
+  use "hrsh7th/cmp-cmdline" -- cmdline completions
+  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/cmp-nvim-lsp"
+
+  -- Treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "JoosepAlviste/nvim-ts-context-commentstring"
+
+ -- Telescope
+  use "nvim-telescope/telescope.nvim"  -- 模糊查找插件(很厉害！必须装！)
 
  -- Colorschemes
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
