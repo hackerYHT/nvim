@@ -52,18 +52,29 @@ return packer.startup(function(use)
   use "Pocco81/AutoSave.nvim"   -- 自动保存插件
   use "ethanholz/nvim-lastplace"  -- 退出重进后自动恢复光标位置
 
--- LSP
-use "neovim/nvim-lspconfig" -- LSP 基础服务
-use "williamboman/nvim-lsp-installer" -- 自动安装 LSP
-use "tami5/lspsaga.nvim" -- LSP UI 美化-- LSP 基础服务
-
--- cmp plugins 代码补全核心插件
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
+  -- LSP
+  use "neovim/nvim-lspconfig" -- LSP 基础服务
+  use "williamboman/nvim-lsp-installer" -- 自动安装 LSP
+  use "tami5/lspsaga.nvim" -- LSP UI 美化-- LSP 基础服务
+  use "ray-x/lsp_signature.nvim" -- LSP 插入模式下代码传参提示
+  -- cmp plugins 代码补全核心插件
+  -- 自动代码补全系列插件
+  use {
+      "hrsh7th/nvim-cmp",  -- 代码补全核心插件，下面都是增强补全的体验插件
+      requires = {
+          {"onsails/lspkind-nvim"}, -- 为补全添加类似 vscode 的图标
+          {"hrsh7th/vim-vsnip"}, -- vsnip 引擎，用于获得代码片段支持
+          {"hrsh7th/cmp-vsnip"}, -- 适用于 vsnip 的代码片段源
+          {"hrsh7th/cmp-nvim-lsp"}, -- 替换内置 omnifunc，获得更多补全
+          {"hrsh7th/cmp-path"}, -- 路径补全
+          {"hrsh7th/cmp-buffer"}, -- 缓冲区补全
+          {"hrsh7th/cmp-cmdline"}, -- 命令补全
+          {"f3fora/cmp-spell"}, -- 拼写建议
+          {"rafamadriz/friendly-snippets"}, -- 提供多种语言的代码片段
+          {"lukas-reineke/cmp-under-comparator"}, -- 让补全结果的排序更加智能
+          {"tzachar/cmp-tabnine", run = "./install.sh"} -- tabnine 源,提供基于 AI 的智能补全
+      }
+    }
 
   -- Treesitter
   use {
@@ -75,8 +86,16 @@ use "tami5/lspsaga.nvim" -- LSP UI 美化-- LSP 基础服务
  -- Telescope
   use "nvim-telescope/telescope.nvim"  -- 模糊查找插件(很厉害！必须装！)
 
+  -- 代码注释
+  use {
+      "numToStr/Comment.nvim",
+      requires = "JoosepAlviste/nvim-ts-context-commentstring"
+    }
+
+  use "liuchengxu/vista.vim"  -- view tree 大纲预览
+
  -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+  use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   use "lunarvim/darkplus.nvim"
 
   -- Automatically set up your configuration after cloning packer.nvim

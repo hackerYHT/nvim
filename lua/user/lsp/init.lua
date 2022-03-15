@@ -7,6 +7,10 @@ end
 
 require "user.lsp.lsp-installer"
 require "user.lsp.lspsaga"
+require "user.lsp.lsp-signature"
+
+-- 指定代码片段存储路径，这个目录我们在第二章节的时候已经创建好了
+vim.g.vsnip_snippet_dir = "~/.config/nvim/user/snippet/"
 
 -- 诊断样式定制
 vim.diagnostic.config(
