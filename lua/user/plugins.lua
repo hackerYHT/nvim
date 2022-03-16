@@ -91,6 +91,19 @@ return packer.startup(function(use)
       "numToStr/Comment.nvim",
       requires = "JoosepAlviste/nvim-ts-context-commentstring"
     }
+-- Debug
+  -- 代码调试基础插件
+  use "mfussenegger/nvim-dap"
+  -- 为代码调试提供内联文本
+use {
+    "theHamsta/nvim-dap-virtual-text",
+    requires = "mfussenegger/nvim-dap"
+  }
+  -- 为代码调试提供 UI 界面
+use {
+    "rcarriga/nvim-dap-ui",
+    requires = "mfussenegger/nvim-dap"
+  }
 
   use "liuchengxu/vista.vim"  -- view tree 大纲预览
 

@@ -10,17 +10,17 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 -- 配置：https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 local servers = {
     -- 语言服务器名称：配置选项
-    sumneko_lua = require("user.lsp.settings.sumneko_lua"),
-    clangd = require("user.lsp.settings.clangd")
-    -- pyright = require("user.lsp.settings.pyright"),
-    -- tsserver = require("user.lsp.settings.tsserver"),
-    -- html = require("user.lsp.settings.html"),
-    -- cssls = require("user.lsp.settings.cssls"),
-    -- gopls = require("user.lsp.settings.gopls"),
-    -- jsonls = require("user.lsp.settings.jsonls"),
-    -- zeta_note = require("user.lsp.settings.zeta_note"),
-    -- sqls = require("user.lsp.settings.sqls"),
-    -- vuels = require("user.lsp.settings.vuels")
+    -- jdtls = require("user.lsp.settings.jdtls"), -- java server
+    pyright = require("user.lsp.settings.pyright"), -- python server
+    clangd = require("user.lsp.settings.clangd"),  -- C/C++ server
+    gopls = require("user.lsp.settings.gopls"),  -- go server
+    zeta_note = require("user.lsp.settings.zeta_note"),  -- MarkDown
+    sumneko_lua = require("user.lsp.settings.sumneko_lua"),  -- Lua server
+    html = require("user.lsp.settings.html"),  -- html server
+    cssls = require("user.lsp.settings.cssls"),  -- css server
+    jsonls = require("user.lsp.settings.jsonls"),  -- json server
+    --sqls = require("user.lsp.settings.sqls"),  -- sql server
+    vuels = require("user.lsp.settings.vuels")  -- vue server
 }
 -- 这里是 LSP 服务启动后的按键加载
 local function attach(_, bufnr)

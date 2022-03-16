@@ -1,79 +1,45 @@
-local opts = { noremap = true, silent = true }
+-- nvim ~/.config/nvim/lua/basic/keybinds.lua
 
-local term_opts = { silent = true }
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+-- leader 键设置为空格
+vim.g.mapleader = " "
 
 -- 默认的键位设置函数太长了，所以这里将它们重新引用一下
-vim.keybinds = {    
-    gmap = vim.api.nvim_set_keymap,    
-    bmap = vim.api.nvim_buf_set_keymap,    
-    dgmap = vim.api.nvim_del_keymap,    
-    dbmap = vim.api.nvim_buf_del_keymap,    
-    opts = {noremap = true, silent = true}    
+vim.keybinds = {
+    gmap = vim.api.nvim_set_keymap,
+    bmap = vim.api.nvim_buf_set_keymap,
+    dgmap = vim.api.nvim_del_keymap,
+    dbmap = vim.api.nvim_buf_del_keymap,
+    opts = {noremap = true, silent = true}
 }
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+-- 用 H 和 L 代替 ^ 与 $
+vim.keybinds.gmap("n", "H", "^", vim.keybinds.opts)
+vim.keybinds.gmap("v", "H", "^", vim.keybinds.opts)
+vim.keybinds.gmap("n", "L", "$", vim.keybinds.opts)
+vim.keybinds.gmap("v", "L", "$", vim.keybinds.opts)
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+-- 将 C-u 和 C-d 调整为上下滑动 10 行而不是半页
+vim.keybinds.gmap("n", "<C-u>", "10k", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-d>", "10j", vim.keybinds.opts)
 
--- Normal --
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+-- 插入模式下的上下左右移动
+vim.keybinds.gmap("i", "<A-k>", "<up>", vim.keybinds.opts)
+vim.keybinds.gmap("i", "<A-j>", "<down>", vim.keybinds.opts)
+vim.keybinds.gmap("i", "<A-h>", "<left>", vim.keybinds.opts)
+vim.keybinds.gmap("i", "<A-l>", "<right>", vim.keybinds.opts)
 
--- Resize with arrows
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+-- 修改分屏大小
+vim.keybinds.gmap("n", "<C-up>", "<cmd>res +1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-down>", "<cmd>res -1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-left>", "<cmd>vertical resize-1<CR>", vim.keybinds.opts)
+vim.keybinds.gmap("n", "<C-right>", "<cmd>vertical resize+1<CR>", vim.keybinds.opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- 正常模式下按 ESC 取消高亮显示
+vim.keybinds.gmap("n", "<ESC>", ":nohlsearch<CR>", vim.keybinds.opts)
 
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
+-- 通过 leader cs 切换拼写检查
+vim.keybinds.gmap("n", "<leader>cs", "<cmd>set spell!<CR>", vim.keybinds.opts)
 
--- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
 
--- Visual --
--- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 
