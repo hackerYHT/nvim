@@ -45,3 +45,7 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
+-- 指定 Python 解释器路径
+vim.g.python_path = "/usr/bin/python3"
+
+
