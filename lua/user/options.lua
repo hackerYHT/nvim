@@ -48,4 +48,15 @@ vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 -- 指定 Python 解释器路径
 vim.g.python_path = "/usr/bin/python3"
 
+-- 解决wsl的nvim和系统剪切板通信问题
+if vim.fn.has('wsl') then
+  vim.cmd [[
+  augroup Yank
+  autocmd!
+  autocmd TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+  augroup END
+  ]]
+end
+
+
 

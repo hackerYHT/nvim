@@ -51,6 +51,7 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"  -- 自动换行空位制表符
   use "Pocco81/AutoSave.nvim"   -- 自动保存插件
   use "ethanholz/nvim-lastplace"  -- 退出重进后自动恢复光标位置
+  use 'davidgranstrom/nvim-markdown-preview' -- markdown预览插件
 
   -- LSP
   use "neovim/nvim-lspconfig" -- LSP 基础服务

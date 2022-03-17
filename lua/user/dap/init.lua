@@ -15,7 +15,8 @@ vim.fn.sign_define("DapBreakpoint", {text = "⊚", texthl = "TodoFgFIX", linehl 
 
 -- 加载调试器配置
 local dap_config = {
-    python = require("user.dap.settings.python")
+    python = require("user.dap.settings.python"),
+    cpp = require("user.dap.settings.cpp")
     -- go = require("uer.dap.settings.go")
 }
 
