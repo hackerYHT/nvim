@@ -16,4 +16,7 @@ require "user.cmp"
 require "user.treesitter"
 require "user.comment"
 require "user.vista"
+require "user.toggleterm" 
+
+
 
