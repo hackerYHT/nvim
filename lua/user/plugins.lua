@@ -53,6 +53,7 @@ return packer.startup(function(use)
   use "ethanholz/nvim-lastplace"  -- 退出重进后自动恢复光标位置
   use 'davidgranstrom/nvim-markdown-preview' -- markdown 预览插件
   use "akinsho/toggleterm.nvim" -- 内置终端
+  use "rcarriga/nvim-notify" -- 通知弹窗
 
   -- LSP
   use "neovim/nvim-lspconfig" -- LSP 基础服务
