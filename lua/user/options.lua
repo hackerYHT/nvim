@@ -33,6 +33,7 @@ local options = {
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
+  filetype = "plugin"                      -- 自动缩进的策略为 plugin
 }
 
 vim.opt.shortmess:append "c"
