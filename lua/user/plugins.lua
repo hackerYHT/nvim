@@ -87,7 +87,14 @@ return packer.startup(function(use)
   use "JoosepAlviste/nvim-ts-context-commentstring"
 
  -- Telescope
-  use "nvim-telescope/telescope.nvim"  -- 模糊查找插件(很厉害！必须装！)
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+        "nvim-lua/plenary.nvim", -- Lua 开发模块
+        "BurntSushi/ripgrep", -- 文字查找
+        "sharkdp/fd" -- 文件查找
+    }
+  }
 
   -- 代码注释
   use {

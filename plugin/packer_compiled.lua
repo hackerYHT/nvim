@@ -69,11 +69,6 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["AutoSave.nvim"] = {
-    loaded = true,
-    path = "/home/yht/.local/share/nvim/site/pack/packer/start/AutoSave.nvim",
-    url = "https://github.com/Pocco81/AutoSave.nvim"
-  },
   ["Comment.nvim"] = {
     loaded = true,
     path = "/home/yht/.local/share/nvim/site/pack/packer/start/Comment.nvim",
@@ -133,6 +128,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yht/.local/share/nvim/site/pack/packer/start/darkplus.nvim",
     url = "https://github.com/lunarvim/darkplus.nvim"
+  },
+  fd = {
+    loaded = true,
+    path = "/home/yht/.local/share/nvim/site/pack/packer/start/fd",
+    url = "https://github.com/sharkdp/fd"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -204,6 +204,11 @@ _G.packer_plugins = {
     path = "/home/yht/.local/share/nvim/site/pack/packer/start/nvim-markdown-preview",
     url = "https://github.com/davidgranstrom/nvim-markdown-preview"
   },
+  ["nvim-notify"] = {
+    loaded = true,
+    path = "/home/yht/.local/share/nvim/site/pack/packer/start/nvim-notify",
+    url = "https://github.com/rcarriga/nvim-notify"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/yht/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -233,6 +238,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yht/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ripgrep = {
+    loaded = true,
+    path = "/home/yht/.local/share/nvim/site/pack/packer/start/ripgrep",
+    url = "https://github.com/BurntSushi/ripgrep"
   },
   ["telescope.nvim"] = {
     loaded = true,
